@@ -8,7 +8,7 @@
  *
  * NOTE: Only supports being bound with "jQuery.one".
  *
- * Copyright 2014, Pixel Union - http://pixelunion.net
+ * Copyright 2014, Pixel Union - https://pixelunion.net
  * Released under the MIT license
  */
 ;(function($){
