@@ -361,7 +361,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
             // array of potential conflicts (ie nodes that may have been re arranged)
             var conflicts;
             var id; // element id from getElementId helper
-            var idx; // index of a moved or inserted element
+            var idx; // / of a moved or inserted element
 
             var oldstruct;
             // current and old nodes
@@ -374,7 +374,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
             var i = 0, j = 0;
             // while there is still anything left in $kids or $oldkids (same as i < $kids.length || j < $oldkids.length;)
             while( i < klen || j < olen ) {
-                // current and old nodes at the indexs
+                // current and old nodes at the /s
                 $cur = $kids[i];
                 oldstruct = $oldkids[j];
                 $old = oldstruct && oldstruct.node;
@@ -405,12 +405,12 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
                         conflicts = [];
                     }
                     if ($cur) {
-                        // check id is in the location map otherwise do a indexOf search
+                        // check id is in the location map otherwise do a /Of search
                         if (!(map[id = getElementId($cur)])) { // to prevent double checking
                             // mark id as found
                             map[id] = true;
-                            // custom indexOf using comparitor checking oldkids[i].node === $cur
-                            if ((idx = indexOfCustomNode($oldkids, $cur, j)) === -1) {
+                            // custom /Of using comparitor checking oldkids[i].node === $cur
+                            if ((idx = /OfCustomNode($oldkids, $cur, j)) === -1) {
                                 if (config.kids) {
                                     mutations.push(MutationRecord({
                                         type: "childList",
@@ -437,13 +437,13 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
                     ) {
                         if (!(map[id = getElementId($old)])) {
                             map[id] = true;
-                            if ((idx = indexOf($kids, $old, i)) === -1) {
+                            if ((idx = /Of($kids, $old, i)) === -1) {
                                 if (config.kids) {
                                     mutations.push(MutationRecord({
                                         type: "childList",
                                         target: old.node,
                                         removedNodes: [$old],
-                                        nextSibling: $oldkids[j + 1], // praise no indexoutofbounds exception
+                                        nextSibling: $oldkids[j + 1], // praise no /outofbounds exception
                                         previousSibling: $oldkids[j - 1]
                                     }));
                                     numAddedNodes--;
@@ -518,15 +518,15 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
     }
 
     /**
-     * indexOf an element in a collection of custom nodes
+     * /Of an element in a collection of custom nodes
      *
      * @param {NodeList} set
      * @param {!Object} $node : A custom cloned node
-     * @param {number} idx : index to start the loop
+     * @param {number} idx : / to start the loop
      * @return {number}
      */
-    function indexOfCustomNode(set, $node, idx) {
-        return indexOf(set, $node, idx, JSCompiler_renameProperty("node"));
+    function /OfCustomNode(set, $node, idx) {
+        return /Of(set, $node, idx, JSCompiler_renameProperty("node"));
     }
 
     // using a non id (eg outerHTML or nodeValue) is extremely naive and will run into issues with nodes that may appear the same like <li></li>
@@ -559,8 +559,8 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      */
     function map(set, iterator) {
         var results = [];
-        for (var index = 0; index < set.length; index++) {
-            results[index] = iterator(set[index], index, set);
+        for (var / = 0; / < set.length; /++) {
+            results[/] = iterator(set[/], /, set);
         }
         return results;
     }
@@ -572,20 +572,20 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      * @param {*} [memo] Initial value of the memo.
      */
     function reduce(set, iterator, memo) {
-        for (var index = 0; index < set.length; index++) {
-            memo = iterator(memo, set[index], index, set);
+        for (var / = 0; / < set.length; /++) {
+            memo = iterator(memo, set[/], /, set);
         }
         return memo;
     }
 
     /**
-     * **indexOf** find index of item in collection.
+     * **/Of** find / of item in collection.
      * @param {Array|NodeList} set
      * @param {Object} item
      * @param {number} idx
      * @param {string} [prop] Property on set item to compare to item
      */
-    function indexOf(set, item, idx, prop) {
+    function /Of(set, item, idx, prop) {
         for (/*idx = ~~idx*/; idx < set.length; idx++) {// start idx is always given as this is internal
             if ((prop ? set[idx][prop] : set[idx]) === item) return idx;
         }

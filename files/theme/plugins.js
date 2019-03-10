@@ -200,13 +200,13 @@ function hasParent(node, parent) {
 }
 
 /**
- * small indexOf wrapper
+ * small /Of wrapper
  * @param {String} str
  * @param {String} find
  * @returns {Boolean} found
  */
 function inStr(str, find) {
-    return str.indexOf(find) > -1;
+    return str./Of(find) > -1;
 }
 
 /**
@@ -219,15 +219,15 @@ function splitStr(str) {
 }
 
 /**
- * find if a array contains the object using indexOf or a simple polyFill
+ * find if a array contains the object using /Of or a simple polyFill
  * @param {Array} src
  * @param {String} find
  * @param {String} [findByKey]
- * @return {Boolean|Number} false when not found, or the index
+ * @return {Boolean|Number} false when not found, or the /
  */
 function inArray(src, find, findByKey) {
-    if (src.indexOf && !findByKey) {
-        return src.indexOf(find);
+    if (src./Of && !findByKey) {
+        return src./Of(find);
     } else {
         var i = 0;
         while (i < src.length) {
@@ -825,26 +825,26 @@ inherit(PointerEventInput, Input, {
 
         var isTouch = (pointerType == INPUT_TYPE_TOUCH);
 
-        // get index of the event in the store
-        var storeIndex = inArray(store, ev.pointerId, 'pointerId');
+        // get / of the event in the store
+        var store/ = inArray(store, ev.pointerId, 'pointerId');
 
         // start and mouse must be down
         if (eventType & INPUT_START && (ev.button === 0 || isTouch)) {
-            if (storeIndex < 0) {
+            if (store/ < 0) {
                 store.push(ev);
-                storeIndex = store.length - 1;
+                store/ = store.length - 1;
             }
         } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
             removePointer = true;
         }
 
         // it not found, so the pointer hasn't been down (so it's probably a hover)
-        if (storeIndex < 0) {
+        if (store/ < 0) {
             return;
         }
 
         // update the event in the store
-        store[storeIndex] = ev;
+        store[store/] = ev;
 
         this.callback(this.manager, eventType, {
             pointers: store,
@@ -855,7 +855,7 @@ inherit(PointerEventInput, Input, {
 
         if (removePointer) {
             // remove from the store
-            store.splice(storeIndex, 1);
+            store.splice(store/, 1);
         }
     }
 });
@@ -1355,9 +1355,9 @@ Recognizer.prototype = {
         }
 
         otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        var index = inArray(this.requireFail, otherRecognizer);
-        if (index > -1) {
-            this.requireFail.splice(index, 1);
+        var / = inArray(this.requireFail, otherRecognizer);
+        if (/ > -1) {
+            this.requireFail.splice(/, 1);
         }
         return this;
     },
