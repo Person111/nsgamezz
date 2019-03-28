@@ -172,8 +172,8 @@ jQuery(function($) {
         }
 
         if ($('#wsite-nav-cart-a').length) {
-          var cartText = $('#wsite-nav-cart-a').html().replace(/["'()]/g,"");
-          $('#wsite-nav-cart-a').html(cartText).addClass("toggle-custom");
+          var cartText = $('#wsite-nav-cart-a')().replace(/["'()]/g,"");
+          $('#wsite-nav-cart-a')(cartText).addClass("toggle-custom");
         }
 
         if ($('.header-sticky:not(.header-compressed)').length || $('body').hasClass('header-sticky-up')) {
@@ -354,10 +354,10 @@ jQuery(function($) {
         $('.mini-cart-overlay').revealer(revealerState);
       };
       var hijackMinicart = function() {
-        var toggleText = $('#wsite-nav-cart-a').html().replace(/["'()]/g,"");
+        var toggleText = $('#wsite-nav-cart-a')().replace(/["'()]/g,"");
 
         $('#wsite-nav-cart-a')
-          .html(toggleText)
+          (toggleText)
           .off('click mouseenter mouseover mouseleave mouseout');
 
         $('#wsite-mini-cart')
@@ -375,12 +375,12 @@ jQuery(function($) {
       };
       var hijackMinicartToggle = function() {
         var $toggle = $('#wsite-nav-cart-a');
-        var toggleText = $toggle.html().replace(/["'()]/g,"");
+        var toggleText = $toggle().replace(/["'()]/g,"");
         var itemCount = parseInt($('#wsite-nav-cart-num').text(), 10);
         var hasItems = isNaN(itemCount) || itemCount === 0 ? false : true;
 
         $toggle
-          .html(toggleText)
+          (toggleText)
           .addClass('toggle-custom')
           .off('click mouseenter mouseover mouseleave mouseout');
 
