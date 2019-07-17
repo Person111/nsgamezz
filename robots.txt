@@ -1,4 +1,4 @@
-Sitemap: https://nsgamezz.github.io/sitemap.xml
+Sitemap: https://nsgamezz.com/sitemap.xml
 
 User-agent: NerdyBot
 Disallow: /
