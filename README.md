@@ -1,1 +1,4 @@
 # nsgamezz
+---
+permalink: /index.html
+---
