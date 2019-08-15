@@ -410,7 +410,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
                             // mark id as found
                             map[id] = true;
                             // custom /Of using comparitor checking oldkids[i].node === $cur
-                            if ((idx = /OfCustomNode($oldkids, $cur, j)) === -1) {
+                            if ((idx = OfCustomNode($oldkids, $cur, j)) === -1) {
                                 if (config.kids) {
                                     mutations.push(MutationRecord({
                                         type: "childList",
