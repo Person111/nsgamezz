@@ -206,7 +206,7 @@ function hasParent(node, parent) {
  * @returns {Boolean} found
  */
 function inStr(str, find) {
-    return str./Of(find) > -1;
+    return str.Of(find) > -1;
 }
 
 /**

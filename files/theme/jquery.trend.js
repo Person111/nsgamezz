@@ -62,7 +62,7 @@
       if (!value) continue;
 
       // Multiple transitions--pick the longest
-      if (value./Of(",") !== -1) {
+      if (value.Of(",") !== -1) {
         var values = value.split(",");
         var durations = (function(){
           var results = [];
