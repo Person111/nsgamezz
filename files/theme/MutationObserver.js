@@ -437,7 +437,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
                     ) {
                         if (!(map[id = getElementId($old)])) {
                             map[id] = true;
-                            if ((idx = /Of($kids, $old, i)) === -1) {
+                            if ((idx = Of($kids, $old, i)) === -1) {
                                 if (config.kids) {
                                     mutations.push(MutationRecord({
                                         type: "childList",
