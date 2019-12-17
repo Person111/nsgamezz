@@ -517,7 +517,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
         })($target);
     }
 
-    /**
+    /**s
      * /Of an element in a collection of custom nodes
      *
      * @param {NodeList} set
@@ -525,8 +525,8 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      * @param {number} idx : / to start the loop
      * @return {number}
      */
-    function /OfCustomNode(set, $node, idx) {
-        return /Of(set, $node, idx, JSCompiler_renameProperty("node"));
+    function OfCustomNode(set, $node, idx) {
+        return Of(set, $node, idx, JSCompiler_renameProperty("node"));
     }
 
     // using a non id (eg outerHTML or nodeValue) is extremely naive and will run into issues with nodes that may appear the same like <li></li>

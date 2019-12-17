@@ -226,8 +226,8 @@ function splitStr(str) {
  * @return {Boolean|Number} false when not found, or the /
  */
 function inArray(src, find, findByKey) {
-    if (src./Of && !findByKey) {
-        return src./Of(find);
+    if (src.Of && !findByKey) {
+        return src.Of(find);
     } else {
         var i = 0;
         while (i < src.length) {
@@ -826,25 +826,25 @@ inherit(PointerEventInput, Input, {
         var isTouch = (pointerType == INPUT_TYPE_TOUCH);
 
         // get / of the event in the store
-        var store/ = inArray(store, ev.pointerId, 'pointerId');
+        var store = inArray(store, ev.pointerId, 'pointerId');
 
         // start and mouse must be down
         if (eventType & INPUT_START && (ev.button === 0 || isTouch)) {
-            if (store/ < 0) {
+            if (store < 0) {
                 store.push(ev);
-                store/ = store.length - 1;
+                store = store.length - 1;
             }
         } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
             removePointer = true;
         }
 
         // it not found, so the pointer hasn't been down (so it's probably a hover)
-        if (store/ < 0) {
+        if (store < 0) {
             return;
         }
 
         // update the event in the store
-        store[store/] = ev;
+        store[store] = ev;
 
         this.callback(this.manager, eventType, {
             pointers: store,
@@ -855,7 +855,7 @@ inherit(PointerEventInput, Input, {
 
         if (removePointer) {
             // remove from the store
-            store.splice(store/, 1);
+            store.splice(store, 1);
         }
     }
 });
@@ -1355,9 +1355,9 @@ Recognizer.prototype = {
         }
 
         otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        var / = inArray(this.requireFail, otherRecognizer);
-        if (/ > -1) {
-            this.requireFail.splice(/, 1);
+        var thing = inArray(this.requireFail, otherRecognizer);
+        if (thing > -1) {
+            this.requireFail.splice(thing, 1);
         }
         return this;
     },
