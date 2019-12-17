@@ -559,8 +559,8 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      */
     function map(set, iterator) {
         var results = [];
-        for (var / = 0; / < set.length; /++) {
-            results[/] = iterator(set[/], /, set);
+        for (var thing11 = 0; thing11 < set.length; thing11++) {
+            results[thing11] = iterator(set[thing11], thing11, set);
         }
         return results;
     }
@@ -572,20 +572,20 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      * @param {*} [memo] Initial value of the memo.
      */
     function reduce(set, iterator, memo) {
-        for (var / = 0; / < set.length; /++) {
-            memo = iterator(memo, set[/], /, set);
+        for (var thing22 = 0; thing22 < set.length; thing22++) {
+            memo = iterator(memo, set[thing22], thing22, set);
         }
         return memo;
     }
 
     /**
-     * **/Of** find / of item in collection.
+     * **Of** find / of item in collection.
      * @param {Array|NodeList} set
      * @param {Object} item
      * @param {number} idx
      * @param {string} [prop] Property on set item to compare to item
      */
-    function /Of(set, item, idx, prop) {
+    function Of(set, item, idx, prop) {
         for (/*idx = ~~idx*/; idx < set.length; idx++) {// start idx is always given as this is internal
             if ((prop ? set[idx][prop] : set[idx]) === item) return idx;
         }
