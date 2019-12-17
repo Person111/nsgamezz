@@ -586,7 +586,7 @@ window.MutationObserver = window.MutationObserver || (function(undefined) {
      * @param {string} [prop] Property on set item to compare to item
      */
     function Of(set, item, idx, prop) {
-        for (/*idx = ~~idx*/; idx < set.length; idx++) {// start idx is always given as this is internal
+        for (var idx = idx; idx < set.length; idx++) {// start idx is always given as this is internal
             if ((prop ? set[idx][prop] : set[idx]) === item) return idx;
         }
         return -1;
